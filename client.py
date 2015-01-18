@@ -11,7 +11,7 @@ import time
 import datetime
 import SimplePythonClient.BaseDriver as BaseDriver
 import SimplePythonClient.SimpleParser as SimpleParser
-import SimplePythonClient.PidDriver as Driver
+
 
    
 SERVER_IP = "127.0.0.1"
@@ -36,10 +36,9 @@ trackName = "unknown"
 
 
 class client():
-    def __init__(self, notify_window, track_window):
-        self._notify_window = notify_window
-        self._track_window = track_window
+    def __init__(self, driver):
         self.timeoutCounter = 0
+        self.driver = driver
     
     def run(self):       
         # Bind client to UDP-Socket
@@ -63,7 +62,7 @@ class client():
         else:
             print "STAGE: UNKNOWN" 
 
-        driver = Driver.Driver("test")      
+        driver = self.driver
         sp = SimpleParser.SimpleParser()
         driver.stage = stage
         
@@ -143,7 +142,11 @@ class client():
                         
 
 if __name__ == '__main__':
-    myclient = client(None, None)
+    # import your driver
+    import SimplePythonClient.PidDriver
+    
+    driver = SimplePythonClient.PidDriver.Driver("test version 0.1")
+    myclient = client(driver)
     myclient.run()            
                         
     
