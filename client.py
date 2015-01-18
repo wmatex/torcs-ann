@@ -6,16 +6,15 @@ Created on  03.05.2011
 @contact: fisch27@gmx.de
 '''
 
-from socket import *
+import socket
 import time 
 import datetime
 import SimplePythonClient.BaseDriver as BaseDriver
 import SimplePythonClient.SimpleParser as SimpleParser
-import SimplePythonClient.PidDriver as PidDriver
+import SimplePythonClient.PidDriver as Driver
 
    
 SERVER_IP = "127.0.0.1"
-#SERVER_PORT = 50007
 CLIENT_PORT = 3002
 
 # Maximal size of file read from socket
@@ -44,7 +43,7 @@ class client():
     
     def run(self):       
         # Bind client to UDP-Socket
-        s = socket(AF_INET, SOCK_DGRAM)
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.bind(("", CLIENT_PORT))
         
         print "***********************************" 
@@ -64,7 +63,7 @@ class client():
         else:
             print "STAGE: UNKNOWN" 
 
-        driver = PidDriver.Driver("test")      
+        driver = Driver.Driver("test")      
         sp = SimpleParser.SimpleParser()
         driver.stage = stage
         
@@ -88,7 +87,7 @@ class client():
                 #wait to connect to server, without sleep program freezes
                 time.sleep(0.2)
                 msg_in, (client_ip, client_port) = s.recvfrom(BUFSIZE)
-                print "received:", msg_in[:-1]  # do not print last character "\00" 
+                print client_ip," ", client_port, " received:", msg_in[:-1]  # do not print last character "\00" 
                 
                 #remove last character from string, seems to be a new line
                 msg_in = msg_in[:-1]
@@ -105,7 +104,7 @@ class client():
                 msg_in, (client_ip, client_port) = s.recvfrom(BUFSIZE)
                 #recTime = time.clock()
                 recTime = datetime.datetime.now()
-                print "[",recTime,"] message received; length = ", len(msg_in)
+                print "[",recTime,"]", client_ip," ", client_port," message received; length = ", len(msg_in)
                 #remove last character from string, could be a new line character
                 msg_in = msg_in[:-1]
             
@@ -134,13 +133,13 @@ class client():
                 print "sending action", action
                 
                 # create correct format
-                buffer = action
+                msgBuffer = action
             else:
                 # max actions reached
-                buffer = "(meta 1)"
+                msgBuffer = "(meta 1)"
             
             #send action    
-            s.sendto(buffer, (SERVER_IP, serverPort))  
+            s.sendto(msgBuffer, (SERVER_IP, serverPort))  
                         
 
 if __name__ == '__main__':
