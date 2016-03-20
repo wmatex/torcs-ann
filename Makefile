@@ -13,7 +13,7 @@
 #
 ##############################################################################
 
-ROBOT       = bt
+ROBOT       = bia-ann
 MODULE      = ${ROBOT}.so
 MODULEDIR   = drivers/${ROBOT}
 SOURCES     = ${ROBOT}.cpp driver.cpp opponent.cpp spline.cpp pit.cpp

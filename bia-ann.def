@@ -1,0 +1,6 @@
+LIBRARY	bia-ann
+
+SECTIONS .data READ WRITE
+
+EXPORTS
+	bia-ann

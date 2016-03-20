@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE params SYSTEM "../../libs/tgf/params.dtd">
+
+<params name="bia-ann" type="robotdef">
+  <section name="Robots">
+    <section name="index">
+
+      <section name="0">
+        <attstr name="name" val="bia-ann 1"></attstr>
+        <attstr name="desc" val=""></attstr>
+        <attstr name="team" val="wmatex"></attstr>
+        <attstr name="author" val="Matej Vavrinec"></attstr>
+        <attstr name="car name" val="cg-nascar-rwd"></attstr>
+        <attnum name="race number" val="42"></attnum>
+        <attnum name="red" val="1.0"></attnum>
+        <attnum name="green" val="0.0"></attnum>
+        <attnum name="blue" val="1.0"></attnum>
+      </section>
+
+      <section name="1">
+        <attstr name="name" val="bia-ann 2"></attstr>
+        <attstr name="desc" val=""></attstr>
+        <attstr name="team" val="wmatex"></attstr>
+        <attstr name="author" val="Matej Vavrinec"></attstr>
+        <attstr name="car name" val="xj-220"></attstr>
+        <attnum name="race number" val="43"></attnum>
+        <attnum name="red" val="1.0"></attnum>
+        <attnum name="green" val="0.0"></attnum>
+        <attnum name="blue" val="1.0"></attnum>
+      </section>
+
+      <section name="2">
+        <attstr name="name" val="bia-ann 3"></attstr>
+        <attstr name="desc" val=""></attstr>
+        <attstr name="team" val="wmatex"></attstr>
+        <attstr name="author" val="Matej Vavrinec"></attstr>
+        <attstr name="car name" val="155-DTM"></attstr>
+        <attnum name="race number" val="44"></attnum>
+        <attnum name="red" val="1.0"></attnum>
+        <attnum name="green" val="0.0"></attnum>
+        <attnum name="blue" val="1.0"></attnum>
+      </section>
+
+    </section>
+  </section>
+</params>

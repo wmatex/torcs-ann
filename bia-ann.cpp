@@ -1,24 +1,3 @@
-/***************************************************************************
-
-    file                 : bt.cpp
-    created              : Wed Jan 8 18:31:16 CET 2003
-    copyright            : (C) 2002 Bernhard Wymann
-
- ***************************************************************************/
-
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,7 +28,7 @@ static void endRace(int index, tCarElt *car, tSituation *s);
 
 
 /* Module entry point */
-extern "C" int bt(tModInfo *modInfo)
+extern "C" int bia-ann(tModInfo *modInfo)
 {
 	char buffer[BUFSIZE];
 	int i;
@@ -129,4 +108,3 @@ static void shutdown(int index)
 	free(botname[index]);
 	delete driver[index];
 }
-
